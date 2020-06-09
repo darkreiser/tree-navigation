@@ -1,0 +1,53 @@
+@mixin animate-property($property, $time, $easing) {
+    -webkit-transition: $property $time $easing;
+    transition: $property $time $easing;
+}
+
+.toggled-list-item {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+
+  .list-item-name-container {
+    display: flex;
+    height: 100%;
+
+    &.no-button {
+      margin-left: 25px;
+    }
+
+    .arrow-button {
+      width: 14px;
+      height: 14px;
+      background: none;
+      border: none;
+      margin-right: 10px; 
+
+      img {
+        height: 14px;
+        width: 14px;
+        transition: all 0.25s ease;
+  
+        &.expanded {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    .item-name {
+      font-size: 14px;
+      font-family: sans-serif;
+      color: #4585c2;
+
+      &.grayed {
+        color: #b1b1b1;
+      }
+    }
+
+    .item-icon {
+      height: 18px;
+      width: 18px;
+      margin-right: 5px;
+    }
+  }
+}

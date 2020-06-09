@@ -1,0 +1,63 @@
+<div class="list-container">
+    <div class="list-item connection" *ngFor="let connection of connections | filter: search">
+        <toggled-list-item
+            [item]="connection"
+            [itemIcon]="connection.type"
+            [isExpanded]="isOpened[connection.id] && connection.hasPermission && (connection.dbs.length > 0)"
+            [hasNested]="connection.dbs.length > 0"
+            (onExpandToggle)="toggleExpansion($event)">
+        </toggled-list-item>
+
+        <div *ngIf="isOpened[connection.id] && connection.hasPermission && (connection.dbs.length > 0)">
+            <div class="list-item db" *ngFor="let db of connection.fullDbs">
+                <toggled-list-item
+                    [item]="db"
+                    [itemIcon]="'database'"
+                    [isExpanded]="isOpened[db.id] && db.hasPermission && (db.schemas.length > 0)"
+                    [hasNested]="db.schemas.length > 0"
+                    (onExpandToggle)="toggleExpansion($event)">
+                </toggled-list-item>
+
+                <div *ngIf="isOpened[db.id] && db.hasPermission && (db.schemas.length > 0)">
+                    <div class="list-item schema" *ngFor="let schema of db.schemas">
+                        <toggled-list-item
+                            [item]="schema"
+                            [itemIcon]="schema.icon"
+                            [isExpanded]="isOpened[schema.id] && schema.tables.length > 0"
+                            [hasNested]="schema.tables.length > 0"
+                            (onExpandToggle)="toggleExpansion($event)">
+                        </toggled-list-item>
+
+                        <div *ngIf="isOpened[schema.id] && schema.tables.length > 0">
+                            <div class="list-item table" *ngFor="let table of schema.tables">
+                                <toggled-list-item
+                                    [item]="table"
+                                    [itemIcon]="table.icon"
+                                    [isExpanded]="isOpened[table.id] && table.columns.length > 0"
+                                    [hasNested]="table.columns.length > 0"
+                                    (onExpandToggle)="toggleExpansion($event)">
+                                </toggled-list-item>
+
+                                <div *ngIf="isOpened[table.id] && table.columns.length > 0"
+                                        class="tables">
+                                    <div class="list-item column"
+                                        *ngFor="let column of table.columns">
+                                        <toggled-list-item
+                                            [item]="column"
+                                            [itemIcon]="column.icon"
+                                            [hasNested]="false">
+                                        </toggled-list-item>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+        </div> 
+    </div>
+
+    <div class="not-found" *ngIf="(connections | filter:search).length <1">
+        Not Found
+    </div>
+</div>

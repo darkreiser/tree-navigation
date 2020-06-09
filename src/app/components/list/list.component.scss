@@ -1,0 +1,16 @@
+.list-container {
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+
+    .list-item {
+        padding: 10px 16px 0 20px;
+    }
+
+    .not-found {
+        margin: 10px 0 0px 50px;
+        color: #b1b1b1;
+        font-size: 14px;
+        font-family: sans-serif;
+    }
+}
