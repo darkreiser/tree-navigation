@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Deployment instructions: 
 
-- Run git clone https://github.com/darkreiser/pecan_task.git
-- Run npm i
-- Run ng serve
+- Run `git clone https://github.com/darkreiser/pecan_task.git`
+- Run `npm i`
+- Run `ng serve`
 - Navigate to `http://localhost:4200/`.
