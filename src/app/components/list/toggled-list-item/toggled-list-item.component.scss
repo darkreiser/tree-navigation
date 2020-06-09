@@ -1,8 +1,3 @@
-@mixin animate-property($property, $time, $easing) {
-    -webkit-transition: $property $time $easing;
-    transition: $property $time $easing;
-}
-
 .toggled-list-item {
   display: flex;
   flex-direction: row;
@@ -11,6 +6,9 @@
   .list-item-name-container {
     display: flex;
     height: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     &.no-button {
       margin-left: 25px;
@@ -38,6 +36,8 @@
       font-size: 14px;
       font-family: sans-serif;
       color: #4585c2;
+      overflow: hidden;
+      text-overflow: ellipsis;
 
       &.grayed {
         color: #b1b1b1;

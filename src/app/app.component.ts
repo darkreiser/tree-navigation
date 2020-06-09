@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from './services/app.service';
-import { ConnectionItem, DbItem } from './data/types';
+import { ConnectionItem } from './data/types';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,6 @@ import { ConnectionItem, DbItem } from './data/types';
 export class AppComponent implements OnInit {
   title = 'tree-navigator';
   connections: ConnectionItem[] = null;
-  detailedDbs: DbItem[] = null;
   enrichedConnections: any = null;
   search = '';
 
@@ -19,9 +18,8 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // TODO - maybe clone element instead of mutating
     this.connections = this.appService.getConnections();
-    this.appService.enrichData();    
+    this.appService.enrichData();
   }
 
   onSearchChange(search: string) {

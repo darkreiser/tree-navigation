@@ -18,6 +18,14 @@ export interface Schema {
     tables: Table[]
 }
 
+export interface DbItem {
+    id: string;
+    title: string;
+    hasPermission: boolean;
+    icon: string;
+    schemas?: Schema[];
+}
+
 export interface ConnectionItem {
     id: string;
     title: string;
@@ -27,13 +35,6 @@ export interface ConnectionItem {
     fullDbs?: DbItem[]
 }
 
-export interface DbItem {
-    id: string;
-    title: string;
-    hasPermission: boolean;
-    icon: string;
-    schemas?: Schema[];
-}
 
 export enum ConnectionTypes {
     postgres = 'Postgres',

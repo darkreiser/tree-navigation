@@ -64,7 +64,7 @@ export class DatabasesApi {
         },
         {
             id: generateId(),
-            title: 'MongoDb - test1',
+            title: 'MongoDb - test1 test1 test1 test1 test1 test1 test1 test1 test1 test1 test1 test1',
             type: ConnectionTypes.mongoDB,
             hasPermission: true,
             dbs: ['dbId8', 'dbId10']

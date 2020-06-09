@@ -1,5 +1,4 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { ConnectionItem, DbItem } from 'src/app/data/types';
 
 @Component({
   selector: 'toggled-list-item',
@@ -8,7 +7,7 @@ import { ConnectionItem, DbItem } from 'src/app/data/types';
 })
 export class ToggledListItemComponent implements OnInit {
 
-  @Input() item: ConnectionItem | DbItem = null;
+  @Input() item: any = null;
   @Input() itemIcon = null;
   @Input() isExpanded = false;
   @Input() hasNested = true;

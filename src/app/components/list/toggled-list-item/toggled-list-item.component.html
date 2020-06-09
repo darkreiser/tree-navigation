@@ -1,15 +1,15 @@
 <div class="toggled-list-item" (click)="toggleExpansion(item.id)">
-        <div class="list-item-name-container" [class.no-button]="!hasPermission || !hasNested">
-            <button *ngIf="hasPermission && hasNested"
-                    class="arrow-button"
-                    [disabled]="!hasPermission"
-                    [title]="isExpanded ? 'Collapse' : 'Expand'">
-                <img src="assets/expand.png" alt="Collapse"
-                    [class.expanded]="isExpanded">
-            </button>
-            <img *ngIf="itemIcon" class="item-icon" [src]="'assets/'+itemIcon+'.png'">
-            <div class="item-name" [class.grayed]="!hasPermission">
-                {{ item.title }}
-            </div>
+    <div class="list-item-name-container" [class.no-button]="!hasPermission || !hasNested">
+        <button *ngIf="hasPermission && hasNested"
+                class="arrow-button"
+                [disabled]="!hasPermission"
+                [title]="isExpanded ? 'Collapse' : 'Expand'">
+            <img src="assets/expand.png" alt="Collapse"
+                [class.expanded]="isExpanded">
+        </button>
+        <img *ngIf="itemIcon" class="item-icon" [src]="'assets/'+itemIcon+'.png'">
+        <div class="item-name" [class.grayed]="!hasPermission" [title]="item.title">
+            {{ item.title }}
         </div>
     </div>
+</div>

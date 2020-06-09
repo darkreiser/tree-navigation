@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { DatabasesApi } from '../data/data.model';
-import { ConnectionItem, DbItem } from '../data/types';
+import { ConnectionItem } from '../data/types';
 
 @Injectable()
 export class AppService {
@@ -14,8 +14,8 @@ export class AppService {
     }
 
     enrichData(): any {
-        let connections: ConnectionItem[] = this.getConnections();
-        const detailedDBs: DbItem[] = this.getDetailedDbData();
+        const connections: ConnectionItem[] = DatabasesApi.connections;
+        const detailedDBs = DatabasesApi.detailedDbs;
 
         const enrichedConnections = connections.forEach((connection: ConnectionItem) => {
             connection.fullDbs = [];
