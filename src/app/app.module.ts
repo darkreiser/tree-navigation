@@ -8,8 +8,8 @@ import { ListComponent } from './components/list/list.component';
 import { ToggledListItemComponent } from './components/list/toggled-list-item/toggled-list-item.component';
 import { SearchComponent } from './components/search/search.component'
 
-import { AppService } from './services/app.service';
-import { FilterPipe } from './services/filter.pipe';
+import { AppService } from './misc/app.service';
+import { FilterPipe } from './misc/filter.pipe';
 
 @NgModule({
   declarations: [

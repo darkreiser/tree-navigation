@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from './services/app.service';
-import { ConnectionItem } from './data/types';
+import { AppService } from './misc/app.service';
+import { ConnectionItem } from './misc/types';
 
 @Component({
   selector: 'app-root',
@@ -18,8 +18,7 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.connections = this.appService.getConnections();
-    this.appService.enrichData();
+    this.connections = this.appService.enrichData();
   }
 
   onSearchChange(search: string) {
